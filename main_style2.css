@@ -325,7 +325,7 @@ nav ul li:hover {
 
 .service:hover .service-text h3 {
     height: 100%;
-    background-color: rgba(195, 221, 244, 0.7); /* Opcjonalnie mocniejsze tło */
+    background-color: rgba(195, 221, 244, 0.7); 
 }
 
 
@@ -389,6 +389,7 @@ nav ul li:hover {
 .contact-info .left p{
     display: flex;
     justify-content: left;
+    text-decoration: none;
 
 }
 
@@ -397,6 +398,24 @@ nav ul li:hover {
     width: 80%;
     height: 180px;
     box-shadow: 5px 5px 0px rgb(2, 111, 213);
+}
+
+
+/* srednie ekrany (np. tablety od 601px do 1024px szerokości) */
+@media (max-width: 1024px) {
+    .services-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+
+    nav ul li { 
+        margin: 0 3px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -433,14 +452,15 @@ nav ul li:hover {
     }
 
     nav ul li {
-        margin: 0;
+        margin: 0px 0px;
         padding: 0;
         width: 100%;
+        line-height: 40px;
     }
 
     nav ul li a:not(.submenu li a) {
         display: inline-block;
-        margin: 10px;
+        margin: 10px 10px;
 
     }
 
@@ -463,9 +483,13 @@ nav ul li:hover {
         margin-top: 10px;
     }
     
+    .submenu li a {
+        font-size: 18px;
+    }
 
     .hero-text h1 {
         font-size: 5vw;
+        margin: 40px;
     }
 
     .service-text h3 {
@@ -481,6 +505,7 @@ nav ul li:hover {
 
     .box {
         width: 35%;
+        height: auto;
     }
 
     .contact-info {
@@ -498,20 +523,7 @@ nav ul li:hover {
     }
 
 }
-
-/* srednie ekrany (np. tablety od 601px do 1024px szerokości) */
-@media (max-width: 1024px) {
-    .services-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .service {
-        width: 45%;
-        margin-bottom: 20px;
-    }
-}
-
+ 
 /* Bardzo duże ekrany (powyżej 1440px) */
 @media (min-width: 1440px) {
     body {

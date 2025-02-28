@@ -247,6 +247,13 @@ nav ul li:hover {
     box-shadow: 5px 5px 0px rgb(2, 111, 213);
 }
 
+
+@media (max-width: 1024px) {
+    nav ul li { 
+        margin: 0 3px;
+    }
+}
+
 @media (max-width: 700px) {
     .menu-toggle {
         display: block; /* Pokazuje ikonę ☰ */
@@ -281,14 +288,15 @@ nav ul li:hover {
     }
 
     nav ul li {
-        margin: 0;
+        margin: 0px 0px;
         padding: 0;
         width: 100%;
+        line-height: 40px;
     }
 
     nav ul li a:not(.submenu li a) {
         display: inline-block;
-        margin: 10px;
+        margin: 10px 10px;
 
     }
 
@@ -311,8 +319,9 @@ nav ul li:hover {
         margin-top: 10px;
     }
     
-
-
+    .submenu li a {
+        font-size: 18px;
+    }
 
     .contact-info {
         flex-direction: column;
@@ -347,3 +356,4 @@ nav ul li:hover {
     }
 
 }
+
