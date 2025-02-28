@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U-Term - mobilna obróbka skrawaniem</title>
+    <link rel="stylesheet" href="services_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+        <div class="logo">
+            U-Term
+        </div>
+
+    <header>
+        <nav>
+
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-submenu" onclick="toggleSubmenu(this)">
+                    <a>Usługi</a>
+                    <ul class="submenu">
+                        <li><a href="service1.html">Obróbka skrawaniem</a></li>
+                        <li><a href="service2.html">Mobilna obróbka skrawaniem</a></li>
+                        <li><a href="service3.html">Spawanie</a></li>
+                        <li><a href="service4.html">Regeneracja zaworów przemysłowych</a></li>
+                        <li><a href="service5.html">Remonty maszyn budowlanych</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Galeria</a></li>
+                <li><a href="about_us.html">O nas</a></li>                
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1 id="hero-title">Mobilna obróbka skrawaniem</h1>
+        </div>
+    </section>
+
+    <div class="box">
+        <i class="fa fa-car" style="font-size: 30px;"></i>
+        <div class="right-area">
+        <p>Mobilny serwis - Dojeżdżamy bezpośrednio do Ciebie.</p>
+        </div>
+    </div>
+    
+    <section class="service">
+            <div class="item1">
+                <div class="mini-container">
+                    <div class="item-text" >
+                <ul class="custom-list">
+                    <li>Wytaczanie i napawanie</li>
+                </ul>            
+                <p>Oferujemy precyzyjne wytaczanie oraz napawanie <strong>w zakresie średnic od Ø25 mm do Ø300 mm z dokładnością do 0,02 mm</strong>. Dzięki mobilnemu sprzętowi wykonujemy regenerację otworów bez konieczności demontażu elementów, co skraca czas naprawy.</p>
+            </div>
+            </div>
+            </div>
+            <div class="item2">
+                <div class="mini-container">
+                    <div class="item-text" >
+                <ul class="custom-list">
+                    <li>Obróbka czopów</li>
+                </ul>            
+                <p>Świadczymy usługi obróbki czopów <strong>w zakresie średnic od Ø20 mm do Ø200 mm</strong>. Obrabiamy elementy o <strong>długości do 100 mm</strong>, zapewniając wysoką precyzję. Idealne rozwiązanie dla regeneracji czopów, wałów oraz innych komponentów maszyn.</p>
+            </div>
+            </div>
+            </div>
+            <div class="item1">
+                <div class="mini-container">
+                    <div class="item-text" >
+                <ul class="custom-list">
+                    <li>Obróbka kołnierzy</li>
+                </ul>            
+                <p>Oferujemy precyzyjną obróbkę kołnierzy <strong> zakresie średnic od Ø40 mm do Ø1000 mm</strong>. Wykonujemy planowanie powierzchni oraz rowki uszczelniające, zapewniając idealne dopasowanie i szczelność połączeń kołnierzowych. Nasze usługi pozwalają na regenerację i przygotowanie kołnierzy do dalszej eksploatacji zgodnie z najwyższymi standardami jakości.</p>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+    <section class="contact-info" id="contact">
+        <div class="left">
+            <div class="logo2">
+                U-Term
+            </div>
+            <p><i class="fas fa-phone"></i> &nbsp; 503 401 890</p>
+            <p><i class="fas fa-envelope"></i> &nbsp; biuro.uterm@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> &nbsp; 32-651 Oświęcim, ul. Grobelna 6</p>      
+            <p><a>NIP:</a> &nbsp; 5491327806</p>            
+      
+        </div>
+        <div class="right">
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.197937007718!2d19.29060941073837!3d50.02638677139545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716948c15ad5251%3A0xd23ae691dc8fdfdd!2sGrobelna%206%2C%2032-651%20O%C5%9Bwi%C4%99cim!5e0!3m2!1spl!2spl!4v1738694750681!5m2!1spl!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        
+    </section>
+</body>
+</html>
+
+
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+    
+    // Zamknięcie menu po kliknięciu poza nim
+    document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const toggleButton = document.querySelector(".menu-toggle");
+    
+        // Jeśli kliknięto poza menu i poza ikoną ☰, ukryj menu
+        if (!menu.contains(event.target) && !toggleButton.contains(event.target)) {
+            menu.classList.remove("show");
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const menu = document.getElementById("menu");
+    const contactLink = document.querySelector("#menu a[href='#contact']");
+
+    contactLink.addEventListener("click", function () {
+        if (menu.classList.contains("show")) {
+            menu.classList.remove("show");
+        }
+    });
+});
+    
+    function toggleSubmenu(element) {
+    const submenu = element.querySelector('.submenu');
+    element.classList.toggle('active'); // Dodaje/usuwa klasę "active" dla rozwoju submenu
+}
+    </script>
+    

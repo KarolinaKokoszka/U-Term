@@ -1,0 +1,520 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    padding-right: 50px;
+}
+
+header.transparent {
+    background-color: transparent;
+}
+
+header.solid {
+    background-color: rgba(51, 51, 51, 0.8);/* Kolor tła po przewinięciu */
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0 20px;
+    color: white;
+    font-size: 36px;
+    text-shadow: 3px 3px 0px rgba(2, 111, 213);   
+    font-weight:900;
+    font-style: italic; 
+    z-index: 1001;
+}
+
+.logo2 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 40px;
+    text-shadow: 3px 3px 0px rgba(2, 111, 213);   
+    font-weight:900;
+    font-style: italic; 
+
+}
+
+/* Stylizacja menu */
+
+nav {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;    
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin: 0 15px;
+    padding: 12px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 2px;
+}
+
+nav ul li:hover > a:not(.submenu li a){
+    box-shadow: 0 3px 0px rgb(2, 111, 213);
+}
+
+nav ul li:hover {
+    background-color: rgba(113, 113, 113, 0.8);
+}
+
+.has-submenu {
+    position: relative; /* Zapewnia, że submenu będzie względem rodzica */
+}
+
+/* Ukryte podmenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(51, 51, 51, 0.8);
+    width: 250px;
+    flex-direction: column;
+    padding: 0;
+}
+
+.submenu li {
+    margin: 0;
+    padding: 10px;
+
+}
+
+.submenu li:hover {
+    background-color:rgba(113, 113, 113, 0.8);
+}
+
+.submenu li a {
+    width: 100%;
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+
+/* Pokazanie submenu po aktywacji */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Hamburger menu - ukryte na dużych ekranach */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+.hero {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+   /* box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.7);*/
+   box-shadow: 0px 10px 0px rgb(2, 111, 213);
+    position: relative;
+    z-index: 6;
+    background: url('mainPhoto/foto_main.jpg') no-repeat center center/cover;
+
+}
+
+.hero-text h1 {
+    font-size: 3vw;
+    text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.7);    
+    padding: 10px;
+}
+
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.arrow:hover {
+    background: rgba(51, 51, 51, 0.5);
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px); /* Tekst zaczyna się poniżej */
+        opacity: 0; /* Tekst jest niewidoczny */
+    }
+    100% {
+        transform: translateY(0); /* Tekst wraca do normalnej pozycji */
+        opacity: 1; /* Tekst staje się widoczny */
+    }
+}
+
+@keyframes underlineDraw {
+    0% {
+        width: 0%; /* Kreska ma początkową szerokość 0% */
+    }
+    100% {
+        width: 100%; /* Kreska w końcu ma 100% szerokości */
+    }
+}
+
+.hero-title {
+    animation: slideUp 1s ease-out forwards; /* Animacja dla tekstu */
+    position: relative; /* Ustawienie kontenera dla kreski */
+    transform: translateY(30px); /* Ustawienie początkowego położenia */
+    opacity: 0; /* Tekst jest niewidoczny na początku */
+}
+
+.hero-title::after {
+    content: ''; /* Tworzymy pusty element */
+    position: absolute;
+    bottom: 0; /* Ustalamy pozycję kreski pod tekstem */
+    left: 0;
+    width: 0%; /* Kreska ma początkową szerokość 0% */
+    height: 3px; /* Grubość kreski */
+    background-color:rgb(2, 111, 213); /* Kolor kreski */
+    animation: underlineDraw 1.5s ease-out 1s forwards; /* Opóźnienie animacji kreski */
+}
+
+
+.services {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    width: 90%;
+    margin: 0 auto;
+    background: white; 
+    position: relative;
+
+    z-index: 5;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+
+}
+
+.service {
+    width: 25%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out; /* Dodanie animacji */
+
+}
+
+.service:not(#uslugi):hover {
+    transform: scale(1.1); /* Powiększenie całego elementu */
+}
+
+
+#service1{
+    background: url('servicesPhoto/service1.jpg') no-repeat center center/cover;
+}
+
+#service2{
+    background: url('servicesPhoto/service2.jpg') no-repeat center center/cover;
+}
+
+#service3{
+    background: url('servicesPhoto/service3.jpg') no-repeat center center/cover;
+}
+
+#service4{
+    background: url('servicesPhoto/service4.jpg') no-repeat center center/cover;
+}
+
+#service5{
+    background: url('servicesPhoto/service5.jpg') no-repeat center center/cover;
+}
+
+.service-text{
+    height: 210px;
+    width: 100%;
+    position: relative;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.service-text h3 {
+    height: 60px;
+    width: 100%;
+    color:white;
+    font-size: 23px;
+    box-shadow: 0 3px 0px rgb(2, 111, 213);
+    text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.7);    
+    background-color: rgba(195, 221, 244, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.3s ease-in-out;
+}
+
+.service-text h2 {
+    color:rgba(51, 51, 51);
+    font-size: 35px;
+    box-shadow: 0 5px 0px rgb(2, 111, 213);  
+    padding: 5px;
+}
+
+.service:hover .service-text h3 {
+    height: 100%;
+    background-color: rgba(195, 221, 244, 0.7); /* Opcjonalnie mocniejsze tło */
+}
+
+
+.why-us {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Wyrównanie elementów w pionie */
+    justify-content: center; /* Ustawienie elementów bliżej siebie */
+
+    background: rgb(2, 111, 213);
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+}
+
+.why-us .box i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.why-us:hover .box i{
+    transform: scale(1.1);
+}
+
+.box {
+    width: 15%;
+    padding: 20px;
+    height: 150px;
+}
+
+
+.box h3{
+    height: 30px;
+}
+
+.contact-info {
+    text-align: center;
+    /*width: 80vw;*/
+    width: 100%;
+    margin: 0;
+    /*box-shadow: 1px 0px 3px rgb(51, 51, 51), -1px 0px 3px rgb(51, 51, 51);*/
+
+    display: flex;
+    background-color: rgba(51, 51, 51, 1);
+    color: white;
+    justify-content: center; /* Ustawienie elementów bliżej siebie */
+    padding-top: 80px;
+    padding-bottom: 60px;
+
+}
+.contact-info .right{
+    padding-right: 50px;
+    width: 70%;
+}
+.contact-info .left{
+    width: 30%;
+    padding-left: 60px;
+}
+
+.contact-info .left p{
+    display: flex;
+    justify-content: left;
+
+}
+
+
+.contact-info iframe {
+    width: 80%;
+    height: 180px;
+    box-shadow: 5px 5px 0px rgb(2, 111, 213);
+}
+
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block; /* Pokazuje ikonę ☰ */
+    }
+    
+    .logo {
+
+        right: 0px;
+        left: auto;
+    }
+
+    header {
+  padding: 0;
+    }
+
+    nav ul {
+        display: none; /* Ukrywa menu domyślnie */
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Pokazuje menu po kliknięciu */
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    nav ul li a:not(.submenu li a) {
+        display: inline-block;
+        margin: 10px;
+
+    }
+
+    .has-submenu {
+        margin: 0;
+        padding: 0; 
+        width: 100%;
+        position: relative;
+    }
+    
+    .has-submenu:hover .submenu {
+        display: none; /* Wyłączamy wyświetlanie podmenu przy hover */
+    }
+
+    /* Rozwijanie submenu po kliknięciu */
+    .has-submenu.active > .submenu {
+        display: block;
+        width: 100%; /* Szerokość 100% na małych ekranach */
+        position: relative;
+        margin-top: 10px;
+    }
+    
+
+    .hero-text h1 {
+        font-size: 5vw;
+    }
+
+    .service-text h3 {
+        font-size: 18px;
+    }
+
+    .why-us {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .box {
+        width: 35%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info .right{
+        padding: auto;
+        width: 80%;
+    }
+    .contact-info .left{
+        width: 80%;
+        padding: auto;
+    }
+
+}
+
+/* srednie ekrany (np. tablety od 601px do 1024px szerokości) */
+@media (max-width: 1024px) {
+    .services-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Bardzo duże ekrany (powyżej 1440px) */
+@media (min-width: 1440px) {
+    body {
+        font-size: 18px;
+    }
+}

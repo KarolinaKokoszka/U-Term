@@ -1,0 +1,441 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.8);
+    z-index: 1000;
+    padding-right: 50px;
+}
+
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0 20px;
+    color: white;
+    font-size: 36px;
+    text-shadow: 3px 3px 0px rgba(2, 111, 213);   
+    font-weight:900;
+    font-style: italic; 
+    z-index: 1001;
+}
+
+.logo2 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 40px;
+    text-shadow: 3px 3px 0px rgba(2, 111, 213);   
+    font-weight:900;
+    font-style: italic; 
+
+}
+
+/* Stylizacja menu */
+
+nav {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;    
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin: 0 15px;
+    padding: 12px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 2px;
+}
+
+nav ul li:hover > a:not(.submenu li a){
+    box-shadow: 0 3px 0px rgb(2, 111, 213);
+}
+
+nav ul li:hover {
+    background-color: rgba(113, 113, 113, 0.8);
+}
+
+.has-submenu {
+    position: relative; /* Zapewnia, że submenu będzie względem rodzica */
+}
+
+/* Ukryte podmenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background:  rgba(51, 51, 51, 0.8);
+    width: 250px;
+    flex-direction: column;
+    padding: 0;
+}
+
+.submenu li {
+    margin: 0;
+    padding: 10px;
+}
+
+.submenu li:hover {
+    background-color:rgba(113, 113, 113, 0.8);
+}
+
+.submenu li a {
+    width: 100%;
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+
+/* Pokazanie submenu po aktywacji */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Hamburger menu - ukryte na dużych ekranach */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+.hero {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+   /* box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.7);*/
+   /*box-shadow: 0px 5px 0px rgb(2, 111, 213);*/
+    position: relative;
+    background-color: rgb(51, 51, 51);
+
+}
+
+
+@keyframes underlineDraw {
+    0% {
+        width: 0%; /* Kreska ma początkową szerokość 0% */
+    }
+    100% {
+        width: 100%; /* Kreska w końcu ma 100% szerokości */
+    }
+}
+
+.hero-text h1 {
+    font-size: 3vw;
+    text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.7);    
+    padding: 10px;
+}
+
+#hero-title {
+    position: relative; /* Ustawienie kontenera dla kreski */
+    display: inline-block;
+}
+
+#hero-title::after {
+    content: ''; /* Tworzymy pusty element */
+    position: absolute;
+    bottom: 0; /* Ustalamy pozycję kreski pod tekstem */
+    left: 0;
+    width: 0%; /* Kreska ma początkową szerokość 0% */
+    height: 4px; /* Grubość kreski */
+    background-color:rgb(2, 111, 213); /* Kolor kreski */
+    animation: underlineDraw 1.5s ease-out 0.5s forwards; /* Opóźnienie animacji kreski */
+}
+
+.box{
+    width: 100%;
+    background-color: rgb(2, 111, 213);
+    margin: 0;
+    padding: 5px;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.box i{
+    margin: 0 20px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.item1 {
+    background-color: #f4f4f4;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item2{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service > div:first-child {
+    padding-top: 20px;
+}
+
+.service > div:last-child {
+    padding-bottom: 20px;
+}
+
+.item1 .mini-container{
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.item2 .mini-container{
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.item-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-container p{
+    font-size: 15px;
+    color:  rgba(51, 51, 51, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes slideInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px); /* Startuje 50px wyżej */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.custom-list {
+    list-style-type: square; /* Kwadratowe punktor */
+    padding: 0;
+}
+
+.custom-list li {
+    list-style: square inside;
+    color: rgba(51, 51, 51, 1);
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    margin: 0;
+
+    opacity: 0;
+    animation: slideInTop 1.5s ease-out 0.5s forwards;
+}
+
+.custom-list li::marker {
+    color: rgba(2, 111, 213);  
+}
+
+
+
+.contact-info {
+    text-align: center;
+    /*width: 80vw;*/
+    width: 100%;
+    margin: 0;
+    /*box-shadow: 1px 0px 3px rgb(51, 51, 51), -1px 0px 3px rgb(51, 51, 51);*/
+
+    display: flex;
+    background-color: rgba(51, 51, 51, 1);
+    color: white;
+    justify-content: center; /* Ustawienie elementów bliżej siebie */
+    padding-top: 80px;
+    padding-bottom: 60px;
+
+}
+.contact-info .right{
+    padding-right: 50px;
+    width: 70%;
+}
+.contact-info .left{
+    width: 30%;
+    padding-left: 60px;
+}
+
+.contact-info .left p{
+    display: flex;
+    justify-content: left;
+
+}
+
+
+.contact-info iframe {
+    width: 80%;
+    height: 180px;
+    box-shadow: 5px 5px 0px rgb(2, 111, 213);
+}
+
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block; /* Pokazuje ikonę ☰ */
+    }
+    
+    .logo {
+
+        right: 0px;
+        left: auto;
+    }
+
+    header {
+  padding: 0;
+    }
+
+    nav ul {
+        display: none; /* Ukrywa menu domyślnie */
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Pokazuje menu po kliknięciu */
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    nav ul li a:not(.submenu li a) {
+        display: inline-block;
+        margin: 10px;
+
+    }
+
+    .has-submenu {
+        margin: 0;
+        padding: 0; 
+        width: 100%;
+        position: relative;
+    }
+    
+    .has-submenu:hover .submenu {
+        display: none; /* Wyłączamy wyświetlanie podmenu przy hover */
+    }
+
+    /* Rozwijanie submenu po kliknięciu */
+    .has-submenu.active > .submenu {
+        display: block;
+        width: 100%; /* Szerokość 100% na małych ekranach */
+        position: relative;
+        margin-top: 10px;
+    }
+    
+    .hero-text h1 {
+        font-size: 4vw;
+    }
+    .box{
+        font-size: 2vw;
+    }
+
+    .item1 .mini-container{
+        flex-direction: column;
+    }
+    
+    .item2 .mini-container{
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info .right{
+        padding: auto;
+        width: 80%;
+    }
+    .contact-info .left{
+        width: 80%;
+        padding: auto;
+    }
+
+
+    .about_us-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .description h2 {
+        margin-top: 0px;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .about_us-image img {
+        max-width: 70%;
+    }
+
+}
