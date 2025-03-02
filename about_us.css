@@ -326,12 +326,15 @@ nav ul li:hover {
     .contact-info {
         flex-direction: column;
         text-align: center;
+        justify-content: center;
     }
 
     .contact-info .right{
-        padding: auto;
+        padding-right: 0px;
         width: 80%;
+        margin: auto;
     }
+    
     .contact-info .left{
         width: 80%;
         padding: auto;
