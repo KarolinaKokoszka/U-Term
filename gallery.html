@@ -40,114 +40,155 @@
         <h1>Nasze realizacje</h1>
     </div>
     
-    <div id="gallery"></div>
-
+    <div id="gallery">
+        <div class="image-container">
+            <img src="galeria/image1.jpeg" alt="Regeneracja otworów z napawaniem">
+            <div class="tooltip">Regeneracja otworów z napawaniem</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image2.jpg" alt="Regeneracja otworu z napawaniem">
+            <div class="tooltip">Regeneracja otworów z napawaniem</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image3.jpeg" alt="Wykonanie klapy do wozidła przegubowego">
+            <div class="tooltip">Wykonanie klapy do wozidła przegubowego</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image4.jpeg" alt="Płaszcz grzewczy na zaworze kulowym">
+            <div class="tooltip">Płaszcz grzewczy na zaworze kulowym</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image5.jpeg" alt="Odtworzenie detalu na podstawie wzorca">
+            <div class="tooltip">Odtworzenie detalu na podstawie wzorca</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image6.jpeg" alt="Nierdzewny sprawdzian">
+            <div class="tooltip">Nierdzewny sprawdzian</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image7.jpeg" alt="Ślizgi z brązu">
+            <div class="tooltip">Ślizgi z brązu</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image8.jpeg" alt="Żmijka nierdzewna">
+            <div class="tooltip">Żmijka nierdzewna</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image9.jpeg" alt="Płaszcz grzewczy na zaworze kulowym">
+            <div class="tooltip">Płaszcz grzewczy na zaworze kulowym</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image10.jpeg" alt="Płaszcz grzewczy na zaworze kulowym">
+            <div class="tooltip">Płaszcz grzewczy na zaworze kulowym</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image11.jpeg" alt="Zesprzęglenie siłownika pneumatycznego z zaworami kulowymi">
+            <div class="tooltip">Zesprzęglenie siłownika pneumatycznego z zaworami kulowymi</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image12.jpeg" alt="Wytaczanie korpusu">
+            <div class="tooltip">Wytaczanie korpusu</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image14.jpeg" alt="Tulejowanie ładowarki">
+            <div class="tooltip">Tulejowanie ładowarki</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image15.jpeg" alt="Wytaczanie mobilne ładowarki">
+            <div class="tooltip">Wytaczanie mobilne ładowarki</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image16.jpeg" alt="Wytaczanie mobilne">
+            <div class="tooltip">Wytaczanie mobilne</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image17.jpeg" alt="Wykonanie lemiesza">
+            <div class="tooltip">Wykonanie lemiesza</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image18.jpeg" alt="Wykonanie sprzęgła do zasuwy">
+            <div class="tooltip">Wykonanie sprzęgła do zasuwy</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image19.jpeg" alt="Odtworzenie detalu na podstawie wzorca">
+            <div class="tooltip">Odtworzenie detalu na podstawie wzorca</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image20.jpeg" alt="Wykonanie szybkozłącza">
+            <div class="tooltip">Wykonanie szybkozłącza</div>
+        </div>
+        <div class="image-container">
+            <img src="galeria/image21.jpeg" alt="Rowkowanie zaworów">
+            <div class="tooltip">Rowkowanie zaworów</div>
+        </div>
+    </div>
+    
     <div id="modal">
         <div id="modalContent">
-          <span class="close" id="modalClose">&times;</span>
-          <span class="prev" id="modalPrev">&#10094;</span>
-          <span class="next" id="modalNext">&#10095;</span>
-          <img id="modalImg" src="" alt="">
-          <div class="description" id="modalDescription"></div>
+            <span class="close" id="modalClose">&times;</span>
+            <span class="prev" id="modalPrev">&#10094;</span>
+            <span class="next" id="modalNext">&#10095;</span>
+            <img id="modalImg" src="" alt="">
+            <div class="description" id="modalDescription"></div>
         </div>
-      </div>
-
-
+    </div>
+    
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Tablica do przechowywania danych o obrazkach
-    let imagesArray = [];
-
-    const galleryDiv = document.getElementById("gallery");
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const modalDescription = document.getElementById("modalDescription");
-    const closeBtn = document.getElementById("modalClose");
-    const nextBtn = document.getElementById("modalNext");
-    const prevBtn = document.getElementById("modalPrev");
+    document.addEventListener("DOMContentLoaded", () => {
+        const galleryDiv = document.getElementById("gallery");
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        const modalDescription = document.getElementById("modalDescription");
+        const closeBtn = document.getElementById("modalClose");
+        const nextBtn = document.getElementById("modalNext");
+        const prevBtn = document.getElementById("modalPrev");
     
-    let currentIndex = 0;
+        let images = Array.from(document.querySelectorAll("#gallery img"));
+        let currentIndex = 0;
     
-    // Pobierz dane z pliku JSON
-    fetch("gallery.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Błąd wczytywania pliku JSON");
-            }
-            return response.json();
-        })
-        .then(images => {
-            imagesArray = images; // zapisz dane globalnie
-            
-            images.forEach((img, index) => {
-                // Utwórz kontener obrazka
-                const imgContainer = document.createElement("div");
-                imgContainer.classList.add("image-container");
-
-                // Utwórz element <img>
-                const imgElement = document.createElement("img");
-                imgElement.src = "galeria/" + img.filename;
-                imgElement.alt = img.description;
-
-                // Utwórz tooltip z opisem
-                const tooltip = document.createElement("div");
-                tooltip.classList.add("tooltip");
-                tooltip.textContent = img.description;
-
-                // Dodaj elementy do kontenera
-                imgContainer.appendChild(imgElement);
-                imgContainer.appendChild(tooltip);
-                galleryDiv.appendChild(imgContainer);
-                
-                // Dodaj obsługę kliknięcia - otwórz modal z klikniętym obrazkiem
-                imgContainer.addEventListener("click", () => {
-                    currentIndex = index;
-                    openModal();
-                });
+        // Dodaj eventy do każdego obrazka
+        images.forEach((img, index) => {
+            img.addEventListener("click", () => {
+                currentIndex = index;
+                openModal();
             });
-        })
-        .catch(error => console.error("Wystąpił problem: ", error));
+        });
     
-    // Funkcja otwierająca modal
-    function openModal() {
-        updateModalContent();
-        modal.style.display = "flex";
-    }
-    
-    // Aktualizuje zawartość modal'a według currentIndex
-    function updateModalContent() {
-        const imgObj = imagesArray[currentIndex];
-        modalImg.src = "galeria/" + imgObj.filename;
-        modalDescription.textContent = imgObj.description;
-    }
-    
-    // Obsługa zamknięcia modal'a
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-    
-    // Obsługa przycisku następnego obrazka
-    nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation(); // zapobiega zamknięciu modal'a przy kliknięciu w przycisk
-        currentIndex = (currentIndex + 1) % imagesArray.length;
-        updateModalContent();
-    });
-    
-    // Obsługa przycisku poprzedniego obrazka
-    prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
-        updateModalContent();
-    });
-    
-    // Zamknięcie modal'a po kliknięciu poza zawartością
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
+        function openModal() {
+            updateModalContent();
+            modal.style.display = "flex";
         }
+    
+        function updateModalContent() {
+            let imgElement = images[currentIndex];
+            modalImg.src = imgElement.src;
+            modalDescription.textContent = imgElement.alt;
+        }
+    
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalContent();
+        });
+    
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalContent();
+        });
+    
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
     });
-});
     </script>
+    
     
     
 
