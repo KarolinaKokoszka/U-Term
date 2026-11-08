@@ -3,7 +3,10 @@ function toggleMenu() {
     menu.classList.toggle("show");
 }
 
-function toggleSubmenu(element) {
+function toggleSubmenu(element, event) {
+    if (event) {
+        event.stopPropagation();
+    }
     element.classList.toggle("active");
 }
 

@@ -136,6 +136,58 @@ nav ul li:hover {
     display: block;
 }
 
+.has-second-submenu {
+    position: relative;
+}
+
+.has-second-submenu > a {
+    cursor: pointer;
+}
+
+.has-second-submenu > a::after {
+    content: "";
+    display: inline-block;
+    margin-left: 8px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-3px);
+    vertical-align: middle;
+}
+
+.second-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(68, 68, 68);
+    width: 250px;
+    flex-direction: column;
+    padding: 0;
+    z-index: 2;
+}
+
+.second-submenu li {
+    margin: 0;
+    padding: 10px;
+}
+
+.second-submenu li:hover {
+    background-color: rgba(113, 113, 113, 0.8);
+}
+
+.second-submenu li a {
+    width: 100%;
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+
+.has-second-submenu:hover > .second-submenu {
+    display: block;
+}
+
 /* Hamburger menu - ukryte na dużych ekranach */
 .menu-toggle {
     display: none;
@@ -456,12 +508,14 @@ nav ul li:hover {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .menu-toggle {
         display: block; /* Pokazuje ikonę ☰ */
     }
     
-    .logo {
+    .logo,
+    .logo:hover,
+    .logo:visited {
         right: 0px;
         left: auto;
         letter-spacing: 0.06em;
@@ -531,6 +585,33 @@ nav ul li:hover {
     
     .submenu li a {
         font-size: 18px;
+    }
+
+    .has-second-submenu:hover > .second-submenu {
+        display: none;
+    }
+
+    .has-second-submenu.active > .second-submenu {
+        display: block;
+        position: relative;
+        right: auto;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: -11px;
+        margin-top: 10px;
+    }
+
+    .second-submenu li {
+    line-height: 28px;
+    padding: 4px 10px;
+    }
+
+    .second-submenu li a {
+        font-size: 16px;
+        text-align: left;
+        margin-left: 30px;
+
     }
 
     .hero-text h1 {
