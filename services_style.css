@@ -463,6 +463,18 @@ nav ul li:hover {
         position: relative;
         margin-top: 10px;
     }
+
+    .has-submenu > a::after {
+    content: "";
+    display: inline-block;
+    margin-left: 8px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-3px);
+    vertical-align: middle;
+    }
     
     .submenu li a {
         font-size: 18px;
