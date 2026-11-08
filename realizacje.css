@@ -35,7 +35,7 @@
     background: none;
     cursor: pointer;
     overflow: hidden;
-    height: 180px;
+    height: 220px;
 }
 
 .project-photo img {
@@ -119,7 +119,7 @@
     }
 
     .project-photo {
-        height: 140px;
+        height: 210px;
     }
 }
 
@@ -140,6 +140,6 @@
     }
 
     .project-photo {
-        height: 120px;
+        height: 200px;
     }
 }
