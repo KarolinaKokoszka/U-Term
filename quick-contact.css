@@ -1,0 +1,44 @@
+.quick-contact {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quick-contact__btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.quick-contact__btn--phone {
+    background: rgb(2, 111, 213);
+}
+
+.quick-contact__btn--whatsapp {
+    background: #25D366;
+}
+
+@media (max-width: 700px) {
+    .quick-contact {
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+        gap: 10px;
+    }
+
+    .quick-contact__btn {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+}
