@@ -19,6 +19,10 @@
 <script src="js/header.js"></script>
 
 <section id="home" class="hero">
+        <div class="hero-slides" aria-hidden="true">
+            <div class="hero-slide hero-slide--a is-visible"></div>
+            <div class="hero-slide hero-slide--b"></div>
+        </div>
         <div class="hero-text">
             <h1 id="hero-title" class="hero-title">Precyzja i niezawodność w obróbce metalu!</h1>
         </div>
@@ -130,62 +134,83 @@
 ];
 
 let currentSlide = 0;
-const heroSection = document.querySelector(".hero");
-const heroTitle = document.getElementById("hero-title");
 let slideInterval;
-let slideReady = false;
+let frontIsA = true;
+let animating = false;
+let queuedSlide = null;
 
-const preloadedSlides = slides.map(function (slide) {
+const heroTitle = document.getElementById("hero-title");
+const layerA = document.querySelector(".hero-slide--a");
+const layerB = document.querySelector(".hero-slide--b");
+
+const ready = slides.map(function (slide) {
     const image = new Image();
-    image.decoding = "async";
+    const done = new Promise(function (resolve) {
+        image.onload = function () {
+            if (image.decode) {
+                image.decode().then(resolve).catch(resolve);
+            } else {
+                resolve();
+            }
+        };
+        image.onerror = function () {
+            resolve();
+        };
+    });
     image.src = slide.img;
-    return image;
+    return done;
 });
 
-function whenSlideReady(image, callback) {
-    if (image.complete && image.naturalWidth > 0) {
-        callback();
-        return;
-    }
-    image.addEventListener("load", callback, { once: true });
+function setTitle(index) {
+    heroTitle.textContent = slides[index].text;
+    heroTitle.classList.remove("hero-title");
+    void heroTitle.offsetWidth;
+    heroTitle.classList.add("hero-title");
 }
 
-function updateSlide() {
-    if (!slideReady) {
-        slideReady = true;
+function showSlide(index) {
+    queuedSlide = index;
+    if (animating) {
         return;
     }
 
-    const image = preloadedSlides[currentSlide];
+    const target = queuedSlide;
+    queuedSlide = null;
+    if (target === currentSlide) {
+        return;
+    }
 
-    whenSlideReady(image, function () {
-        heroSection.style.transition = "opacity 1.5s ease-in-out, background 1.5s ease-in-out";
-        heroSection.style.opacity = 0;
+    animating = true;
+    const incoming = frontIsA ? layerB : layerA;
+    const outgoing = frontIsA ? layerA : layerB;
 
-        setTimeout(() => {
-            heroSection.style.background = `url('${slides[currentSlide].img}') no-repeat center center/cover`;
-            heroTitle.textContent = slides[currentSlide].text;
-
-            heroTitle.classList.remove("hero-title");
-            void heroTitle.offsetWidth;
-            heroTitle.classList.add("hero-title");
-
-            heroSection.style.opacity = 1;
-        }, 60);
+    ready[target].then(function () {
+        incoming.style.backgroundImage = "url('" + slides[target].img + "')";
+        requestAnimationFrame(function () {
+            incoming.classList.add("is-visible");
+            outgoing.classList.remove("is-visible");
+            frontIsA = !frontIsA;
+            currentSlide = target;
+            setTitle(target);
+            window.setTimeout(function () {
+                animating = false;
+                if (queuedSlide !== null && queuedSlide !== currentSlide) {
+                    showSlide(queuedSlide);
+                }
+            }, 1500);
+        });
     });
 }
 
 
 
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlide();
+    showSlide((currentSlide + 1) % slides.length);
     resetTimer();
 }
 
 function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlide();
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
     resetTimer();
 }
 
@@ -198,8 +223,6 @@ function resetTimer() {
     startSlideshow();
 }
 
-// Inicjalizacja pokazu slajdów
-updateSlide();
 startSlideshow();
 
 </script>

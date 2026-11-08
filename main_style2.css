@@ -29,13 +29,17 @@ header.solid {
 }
 
 
-.logo {
+.logo,
+.logo:visited,
+.logo:hover {
     position: fixed;
     top: 0;
     left: 0;
     margin: 0;
     padding: 0px 20px;
     color: white;
+    text-decoration: none;
+    cursor: pointer;
     font-size: 36px;
     /*text-shadow: 3px 3px 0px rgba(2, 111, 213); */  
     text-shadow: 2px 2px 5px rgba(51, 51, 51, 0.7);  
@@ -157,12 +161,42 @@ nav ul li:hover {
    box-shadow: 0px 10px 0px rgb(2, 111, 213);
     position: relative;
     z-index: 6;
-    background: url('mainPhoto/foto_main.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide--a {
+    background-image: url('mainPhoto/foto_main.jpg');
     background-image: image-set(
         url('mainPhoto/foto_main.webp') type('image/webp'),
         url('mainPhoto/foto_main.jpg') type('image/jpeg')
     );
+}
 
+.hero-slide.is-visible {
+    opacity: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-text h1 {
@@ -175,6 +209,7 @@ nav ul li:hover {
 .arrows {
     position: absolute;
     top: 50%;
+    z-index: 2;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -429,7 +464,14 @@ nav ul li:hover {
     .logo {
         right: 0px;
         left: auto;
-        -webkit-text-stroke: 1px currentColor;
+        letter-spacing: 0.06em;
+        -webkit-text-stroke: 1.6px currentColor;
+        paint-order: stroke fill;
+    }
+
+    .logo2 {
+        letter-spacing: 0.06em;
+        -webkit-text-stroke: 1.6px currentColor;
         paint-order: stroke fill;
     }
 

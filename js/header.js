@@ -1,9 +1,7 @@
 // Wspólny nagłówek: logo, menu i szybki kontakt. Edycja tutaj aktualizuje każdą stronę.
 (function () {
     var html = `
-        <div class="logo">
-            U-Term
-        </div>
+        <a class="logo" href="index.html">U-Term</a>
 
     <header>
         <nav>
