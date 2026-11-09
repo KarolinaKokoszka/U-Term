@@ -11,13 +11,20 @@
                 <li class="has-submenu" onclick="toggleSubmenu(this, event)">
                     <a>Usługi</a>
                     <ul class="submenu">
-                        <li><a href="service2.html">Mobilna obróbka skrawaniem</a></li>
+                        <li class="has-second-submenu" onclick="toggleSubmenu(this, event)">
+                            <a>Mobilna obróbka skrawaniem</a>
+                            <ul class="second-submenu">
+                                <li><a href="service2.html">Wytaczanie mobilne</a></li>
+                                <li><a href="service6.html">Obróbka czopów</a></li>
+                                <li><a href="service7.html">Obróbka przylg kołnierzowych</a></li>
+                            </ul>
+                        </li>
                         <li><a href="service4.html">Przemysł</a></li>
                         <li class="has-second-submenu" onclick="toggleSubmenu(this, event)">
                             <a>Usługi warsztatowe</a>
                             <ul class="second-submenu">
                                 <li><a href="service1.html">Obróbka CNC</a></li>
-                                <li><a href="service3.html">Spawanie</a></li>
+                                <li><a href="service3.html">Spawalnictwo</a></li>
                                 <li><a href="service5.html">Remonty maszyn budowlanych</a></li>
                             </ul>
                         </li>

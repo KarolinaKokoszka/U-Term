@@ -148,11 +148,12 @@ nav ul li:hover {
 
 .second-submenu {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: relative;
     background: rgb(68, 68, 68);
-    width: 250px;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
     flex-direction: column;
     padding: 0;
     z-index: 2;
@@ -174,7 +175,7 @@ nav ul li:hover {
     font-size: 15px;
 }
 
-.has-second-submenu:hover > .second-submenu {
+.has-second-submenu.active > .second-submenu {
     display: block;
 }
 
@@ -310,6 +311,11 @@ nav ul li:hover {
     color:  rgba(51, 51, 51, 0.7);
     line-height: 1.6;
     margin: 0;
+}
+
+.item-text p + p,
+.item-text .work-list + p {
+    margin-top: 12px;
 }
 
 @keyframes slideInTop {
@@ -558,5 +564,79 @@ nav ul li:hover {
         max-width: 70%;
     }
 
+}
+
+.machine-figures {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 22px;
+}
+
+.machine-figures figure {
+    margin: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.machine-figures img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.machine-figures figcaption {
+    padding: 8px 10px 12px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(51, 51, 51, 0.7);
+    background: #fff;
+}
+
+.spec-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.spec-list li {
+    background: #fff;
+    border-left: 4px solid rgb(2, 111, 213);
+    padding: 8px 12px;
+    font-size: 15px;
+    color: rgba(51, 51, 51, 0.85);
+}
+
+.item2 .spec-list li {
+    background: #f4f4f4;
+}
+
+.work-list {
+    margin: 14px 0 0;
+    padding-left: 18px;
+    color: rgba(51, 51, 51, 0.85);
+}
+
+.work-list li {
+    margin: 4px 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .mini-container:has(.machine-figures) {
+        width: 92%;
+        padding: 24px 10px;
+        box-sizing: border-box;
+    }
+
+    .machine-figures {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
