@@ -1,0 +1,35 @@
+/home/                 /home                     301
+/o-nas/                /o-nas                    301
+/galeria/              /galeria                  301
+/realizacje/           /realizacje               301
+/obrobka-cnc/          /obrobka-cnc              301
+/wytaczanie-mobilne/   /wytaczanie-mobilne       301
+/spawalnictwo/         /spawalnictwo             301
+/przemysl/             /przemysl                 301
+/remonty-maszyn/       /remonty-maszyn           301
+/obrobka-czopow/       /obrobka-czopow           301
+/obrobka-przylg/       /obrobka-przylg           301
+
+/home                  /index.html               200!
+/o-nas                 /about_us.html            200!
+/galeria               /gallery.html             200!
+/realizacje            /realizacje.html          200!
+/obrobka-cnc           /service1.html            200!
+/wytaczanie-mobilne    /service2.html            200!
+/spawalnictwo          /service3.html            200!
+/przemysl              /service4.html            200!
+/remonty-maszyn        /service5.html            200!
+/obrobka-czopow        /service6.html            200!
+/obrobka-przylg        /service7.html            200!
+
+/index.html            /home                     301!
+/about_us.html         /o-nas                    301!
+/gallery.html          /galeria                  301!
+/realizacje.html       /realizacje               301!
+/service1.html         /obrobka-cnc              301!
+/service2.html         /wytaczanie-mobilne       301!
+/service3.html         /spawalnictwo             301!
+/service4.html         /przemysl                 301!
+/service5.html         /remonty-maszyn           301!
+/service6.html         /obrobka-czopow           301!
+/service7.html         /obrobka-przylg           301!
