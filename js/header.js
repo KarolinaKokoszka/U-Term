@@ -1,38 +1,38 @@
 // Wspólny nagłówek: logo, menu i szybki kontakt. Edycja tutaj aktualizuje każdą stronę.
 (function () {
     var html = `
-        <a class="logo" href="/home">U-Term</a>
+        <a class="logo" href="index.html">U-Term</a>
 
     <header>
         <nav>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <ul id="menu">
-                <li><a href="/home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="has-submenu" onclick="toggleSubmenu(this, event)">
                     <a>Usługi</a>
                     <ul class="submenu">
                         <li class="has-second-submenu" onclick="toggleSubmenu(this, event)">
                             <a>Mobilna obróbka skrawaniem</a>
                             <ul class="second-submenu">
-                                <li><a href="/wytaczanie-mobilne">Wytaczanie mobilne</a></li>
-                                <li><a href="/obrobka-czopow">Obróbka czopów</a></li>
-                                <li><a href="/obrobka-przylg">Obróbka przylg kołnierzowych</a></li>
+                                <li><a href="service2.html">Wytaczanie mobilne</a></li>
+                                <li><a href="service6.html">Obróbka czopów</a></li>
+                                <li><a href="service7.html">Obróbka przylg kołnierzowych</a></li>
                             </ul>
                         </li>
-                        <li><a href="/przemysl">Przemysł</a></li>
+                        <li><a href="service4.html">Przemysł</a></li>
                         <li class="has-second-submenu" onclick="toggleSubmenu(this, event)">
                             <a>Usługi warsztatowe</a>
                             <ul class="second-submenu">
-                                <li><a href="/obrobka-cnc">Obróbka CNC</a></li>
-                                <li><a href="/spawalnictwo">Spawalnictwo</a></li>
-                                <li><a href="/remonty-maszyn">Remonty maszyn budowlanych</a></li>
+                                <li><a href="service1.html">Obróbka CNC</a></li>
+                                <li><a href="service3.html">Spawalnictwo</a></li>
+                                <li><a href="service5.html">Remonty maszyn budowlanych</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="/realizacje">Realizacje</a></li>
-                <li><a href="/galeria">Galeria</a></li>
-                <li><a href="/o-nas">O nas</a></li>
+                <li><a href="realizacje.html">Realizacje</a></li>
+                <li><a href="gallery.html">Galeria</a></li>
+                <li><a href="about_us.html">O nas</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
