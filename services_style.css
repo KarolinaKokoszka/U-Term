@@ -350,6 +350,10 @@ nav ul li:hover {
     color: rgba(2, 111, 213);  
 }
 
+.custom-list.no-marker li {
+    list-style: none;
+}
+
 
 
 .contact-info {
@@ -625,6 +629,24 @@ nav ul li:hover {
 .work-list li {
     margin: 4px 0;
     line-height: 1.5;
+}
+
+.item-text p + .custom-list,
+.item-text .spec-list + .custom-list {
+    margin-top: 28px;
+    margin-bottom: 0;
+}
+
+.spec-list.stack {
+    flex-direction: column;
+}
+
+.item-text .emphasis {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-left: 4px solid rgb(2, 111, 213);
+    background: #fff;
+    color: rgba(51, 51, 51, 0.9);
 }
 
 @media (max-width: 700px) {
